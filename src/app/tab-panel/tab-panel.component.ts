@@ -10,11 +10,12 @@ export class TabPanelComponent implements OnInit {
 
   @Input() title: string;
   @ViewChild(TemplateRef, {static: true}) panelBody: TemplateRef<unknown>;
-
   constructor(private tabGroup: TabGroupComponent) { }
 
   ngOnInit() {
     this.tabGroup.addTabPanel(this);
   }
-
+  tabClick(){
+    console.log('tab click');
+  }
 }

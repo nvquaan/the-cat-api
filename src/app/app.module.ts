@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,6 +9,7 @@ import { TabPanelComponent } from './tab-panel/tab-panel.component';
 import { VoteComponent } from './tab-panel/vote/vote.component';
 import { BreedComponent } from './tab-panel/breed/breed.component';
 import { FavoriteComponent } from './tab-panel/favorite/favorite.component';
+import { ApiInterceptor } from './interceptors/api.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +23,15 @@ import { FavoriteComponent } from './tab-panel/favorite/favorite.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

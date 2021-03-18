@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CatService } from '../../cat.service';
+import { ILikedCat } from 'src/app/model/cat.interface';
+import { CatService } from '../../services/cat.service';
 
 @Component({
   selector: 'app-favorite',
@@ -7,16 +8,15 @@ import { CatService } from '../../cat.service';
   styleUrls: ['./favorite.component.css'],
 })
 export class FavoriteComponent{
-  likedCats: Array<object>;
+  likedCats: Array<ILikedCat>;
   constructor(public catService: CatService) {
     this.loadImages();
   }
-  async loadImages() {
-    await this.catService.getAllFav();
-    this.likedCats = this.catService.likedCats;
+  loadImages() {
+    this.catService.getAllFav().subscribe(data => this.likedCats = data as Array<ILikedCat>);
   }
 
-  async deleteFav() {
-    await this.catService.deleteFav();
+  deleteFav() {
+    this.catService.deleteFav();
   }
 }

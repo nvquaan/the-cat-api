@@ -1,6 +1,6 @@
-
 import { Component, OnInit } from '@angular/core';
-import { CatService } from '../../cat.service';
+import { ICat } from 'src/app/model/cat.interface';
+import { CatService } from '../../services/cat.service';
 
 @Component({
   selector: 'app-vote',
@@ -8,22 +8,25 @@ import { CatService } from '../../cat.service';
   styleUrls: ['./vote.component.css'],
 })
 export class VoteComponent implements OnInit {
-  url: string = 'https://cdn2.thecatapi.com/images/ks5wRxZmP.jpg';
+  url: string = '';
+  catObj: ICat;
   constructor(public catService: CatService) {
     this.randomCats();
   }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {}
+
+  randomCats() {
+    this.catService.randomCats().subscribe((res) => {
+      this.catObj = res[0];
+      this.url = this.catObj.url;
+    });
   }
 
-  async randomCats() {
-    await this.catService.randomCats()
-    this.url = this.catService.catObj['url'];
-  }
-
- async likeCat() {
-  await  this.catService.likeCat();
+  likeCat() {
+    this.catService
+      .likeCat(this.catObj.id)
+      .subscribe((res) => console.log(res));
     this.randomCats();
   }
 }

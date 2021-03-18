@@ -1,5 +1,5 @@
 <button (click)="loadImages()">Load favorite</button>
 <button (click)="deleteFav()">Clear favorite</button>
 <div *ngFor="let cat of likedCats">
-  <img [src]="cat['image']['url']" />
+  <img [src]="cat?.image?.url" />
 </div>

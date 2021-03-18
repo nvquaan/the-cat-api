@@ -1,5 +1,5 @@
 <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item" role="presentation" *ngFor="let tab of tabPanelList; index as idx" (click)="selectItem(idx)">
+    <li class="nav-item" role="presentation" *ngFor="let tab of tabPanelList; index as idx" (click)="selectItem(idx)" >
       <a class="nav-link" [class.active]="idx === tabActiveIndex" role="tab" aria-selected="true">{{tab.title}}</a>
     </li>
   
@@ -12,3 +12,4 @@
       </div>
     </ng-container>
   </div>
+  

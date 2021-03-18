@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { CatService } from '../../cat.service';
-
+import { CatService } from '../../services/cat.service';
+import { IBreed, IBreeds } from '../../model/cat.interface'
 @Component({
   selector: 'app-breed',
   templateUrl: './breed.component.html',
   styleUrls: ['./breed.component.css']
 })
 export class BreedComponent implements OnInit {
-  breedArr: Array<object>;
-  breedObj: object;
+  breedArr: Array<IBreed>;
+  breedObj: IBreeds;
   constructor(public catService: CatService) { }
 
   ngOnInit(): void {
     this.loadBreedNames();
   }
 
-  async loadBreedNames(){
-   await this.catService.getAllBreeds();
-    this.breedArr = this.catService.breedArr;
+  loadBreedNames(){
+    this.catService.getAllBreeds().subscribe(data => this.breedArr = data as Array<IBreed>);
+
   }
 
-  async selectBreed(id: string){
-    await this.catService.getBreed(id);
-    this.breedObj = this.catService.breedObj[0];
+  selectBreed(id: string){
+    this.catService.getBreed(id).subscribe(data => this.breedObj = data[0]);
+    console.log(this.breedObj)
   }
 }
