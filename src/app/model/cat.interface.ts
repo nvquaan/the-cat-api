@@ -18,6 +18,11 @@ export interface IBreed {
   weight_imperial: string;
 }
 
+export interface ICategory{
+    id: number;
+    name: string;
+}
+
 export interface IBreeds{
     breeds: IBreed[];
     height: number;

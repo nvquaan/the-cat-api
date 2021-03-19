@@ -10,6 +10,9 @@ import { VoteComponent } from './tab-panel/vote/vote.component';
 import { BreedComponent } from './tab-panel/breed/breed.component';
 import { FavoriteComponent } from './tab-panel/favorite/favorite.component';
 import { ApiInterceptor } from './interceptors/api.interceptor';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { UploadComponent } from './tab-panel/upload/upload.component';
+import { SearchComponent } from './tab-panel/search/search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,12 +21,15 @@ import { ApiInterceptor } from './interceptors/api.interceptor';
     VoteComponent,
     BreedComponent,
     FavoriteComponent,
+    UploadComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    PaginationModule,
   ],
   providers: [
     {

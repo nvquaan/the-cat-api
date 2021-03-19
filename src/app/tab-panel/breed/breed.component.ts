@@ -21,7 +21,9 @@ export class BreedComponent implements OnInit {
   }
 
   selectBreed(id: string){
-    this.catService.getBreed(id).subscribe(data => this.breedObj = data[0]);
-    console.log(this.breedObj)
+    this.catService.getBreed(id).subscribe(data => {
+      this.breedObj = data[0]
+      console.log(this.breedObj)
+    });
   }
 }

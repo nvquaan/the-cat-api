@@ -1,5 +1,20 @@
+<select class="form-select" aria-label="Default select example" [(ngModel)]="orderValue" (change)="loadImages()">
+  <option value="asc" selected>ASC</option>
+  <option value="desc">DESC</option>
+</select>
+
+<select class="form-select" aria-label="Default select example" [(ngModel)]="limitValue" (change)="loadImages()">
+  <option value="3" selected>3</option>
+  <option value="5">5</option>
+  <option value="10">10</option>
+</select>
+
 <button (click)="loadImages()">Load favorite</button>
-<button (click)="deleteFav()">Clear favorite</button>
+<button (click)="deleteAllFav()">Clear favorite</button>
+
+<pagination [totalItems]="30"></pagination>
+
 <div *ngFor="let cat of likedCats">
   <img [src]="cat?.image?.url" />
+  <button (click)="deleteFav(cat.id)">UN-FAV IT</button>
 </div>

@@ -13,6 +13,10 @@ export class CatService extends ApiService {
     return this.get(this.apiURL + '/images/search');
   }
 
+  public getCats(params){
+    return this.get(this.apiURL + '/images/search', params);
+    
+  }
   public likeCat(id: string) {
     return this.post(this.apiURL + '/favourites', {
       image_id: id,
@@ -28,16 +32,20 @@ export class CatService extends ApiService {
     return this.get(this.apiURL + '/images/search?breed_id=' + id);
   }
 
-  public getAllFav() {
-    return this.get(this.apiURL + '/favourites');
+  public getAllFav(params?:any) {
+    return this.get(this.apiURL + '/favourites', params);
   }
 
-  public deleteFav() {
-    this.getAllFav().subscribe((data) => {
-      const arr = data as Array<ILikedCat>;
-      arr.forEach((likedCat: ILikedCat) => {
-        this.delete(this.apiURL + '/favourites/' + likedCat['id']).subscribe((res) => console.log(res));
-      });
-    });
+  public deleteFav(id: string){
+    return this.delete(this.apiURL + '/favourites/' + id);
+  }
+
+  public getAllCategories(){
+    return this.get(this.apiURL + '/categories');
+
+  }
+
+  public postFile(fileUpload: File){
+    
   }
 }

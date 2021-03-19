@@ -15,7 +15,4 @@ export class TabPanelComponent implements OnInit {
   ngOnInit() {
     this.tabGroup.addTabPanel(this);
   }
-  tabClick(){
-    console.log('tab click');
-  }
 }

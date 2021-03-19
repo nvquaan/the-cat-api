@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  get(url: string) {
-    return this.http.get(url);
+  get(url: string, params?: any) {
+    return this.http.get(url, {params});
   }
 
   post(url: string, data: any) {
