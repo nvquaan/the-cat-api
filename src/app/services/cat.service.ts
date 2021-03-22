@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ApiService } from './api.service';
 @Injectable({
@@ -39,7 +40,12 @@ export class CatService extends ApiService {
 
   }
 
-  public postFile(fileUpload: File){
-    
-  }
+  public postFile(fileToUpload: File): Observable<object> {
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    return this.post(this.apiURL + '/images/upload', {
+      formData: formData,
+      sub_id: 'quan',
+    },);
+}
 }
