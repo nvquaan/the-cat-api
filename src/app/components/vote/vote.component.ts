@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ICat } from 'src/app/model/cat.interface';
-import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 import { CatService } from '../../services/cat.service';
 
 @Component({
@@ -21,7 +20,7 @@ export class VoteComponent implements OnInit {
   ngOnInit(): void {}
 
   randomCats() {
-    this.catService.randomCats().subscribe((res) => {
+    this.catService.getCats().subscribe((res) => {
       this.catObj = res[0];
       this.url = this.catObj.url;
       this.status = false;

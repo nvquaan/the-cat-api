@@ -1,8 +1,8 @@
-<mat-tab-group dynamicHeight>
+<mat-tab-group dynamicHeight [backgroundColor]="'primary'" [color]="'warn'">
   <mat-tab label="VOTE"> <app-vote></app-vote> </mat-tab>
   <mat-tab label="BREEDS"> <app-breed></app-breed> </mat-tab>
-  <mat-tab label="IMAGES/SEARCH"> <app-search></app-search> </mat-tab>
-  <mat-tab label="FAVORITES"> <app-favorite></app-favorite> </mat-tab>
+  <mat-tab label="IMAGES/SEARCH"> <ng-template matTabContent> <app-search></app-search> </ng-template> </mat-tab>
+  <mat-tab label="FAVORITES"> <ng-template matTabContent> <app-favorite></app-favorite> </ng-template> </mat-tab>
   <mat-tab label="UPLOAD"> <app-upload></app-upload> </mat-tab>
 </mat-tab-group>
 

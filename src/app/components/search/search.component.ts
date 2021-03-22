@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IBreed, IBreeds, ICat, ICategory } from 'src/app/model/cat.interface';
+import { IBreed, IBreeds, ICat, ICategory, ILikedCat } from 'src/app/model/cat.interface';
 import { CatService } from '../../services/cat.service';
 
 @Component({
@@ -9,19 +9,22 @@ import { CatService } from '../../services/cat.service';
 })
 export class SearchComponent implements OnInit {
   breedArr: Array<IBreed>;
-  breedObj: IBreeds;
-  categoriesArr: Array<ICategory>
-  catArr: Array<ICat>
+  categoriesArr: Array<ICategory>;
+  catArr: Array<ICat>;
+  likedCats:string[] = []; //luu mang id cac anh da like
   params: object = {
     order: 'random',
     category_ids: [],
     breed_id: '',
     limit: 9,
   };
-
   constructor(public catService: CatService) { }
 
   ngOnInit(): void {
+    this.catService.getAllFav().subscribe(data => {
+      const newData = data as Array<ILikedCat>;
+      this.likedCats = newData.map(data => data.image_id);
+    });
     this.loadBreedNames();
     this.loadCategories();
   }
@@ -43,9 +46,14 @@ export class SearchComponent implements OnInit {
 
   loadImages(){
     this.catService.getCats(this.params).subscribe(data => {
-      this.catArr = data as Array<ICat>;
-      console.log(this.catArr);
-      console.log(this.params)
+      this.catArr = data as Array<ICat>; // luu mang obj cat
+      this.catArr.forEach(cat => {
+        if(this.likedCats.includes(cat.id)){
+          cat['liked'] = true;
+        }else{
+          cat['liked'] = false;
+        }
+      })      
     })
   }
 
@@ -54,5 +62,4 @@ export class SearchComponent implements OnInit {
         console.log(res);
       });
   }
-
 }

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ILikedCat } from '../model/cat.interface';
 import { environment } from '../../environments/environment';
 import { ApiService } from './api.service';
 @Injectable({
@@ -7,13 +6,8 @@ import { ApiService } from './api.service';
 })
 export class CatService extends ApiService {
   apiURL: string = environment.baseUrl;
-  likedCats: Array<ILikedCat>;
 
-  public randomCats() {
-    return this.get(this.apiURL + '/images/search');
-  }
-
-  public getCats(params){
+  public getCats(params?: any){
     return this.get(this.apiURL + '/images/search', params);
     
   }

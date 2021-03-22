@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CatService } from '../../services/cat.service';
 
-
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
