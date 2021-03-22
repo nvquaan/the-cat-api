@@ -4,20 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TabGroupComponent } from './tab-group/tab-group.component';
-import { TabPanelComponent } from './tab-panel/tab-panel.component';
-import { VoteComponent } from './tab-panel/vote/vote.component';
-import { BreedComponent } from './tab-panel/breed/breed.component';
-import { FavoriteComponent } from './tab-panel/favorite/favorite.component';
+import { VoteComponent } from './components/vote/vote.component';
+import { BreedComponent } from './components/breed/breed.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
 import { ApiInterceptor } from './interceptors/api.interceptor';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { UploadComponent } from './tab-panel/upload/upload.component';
-import { SearchComponent } from './tab-panel/search/search.component';
+import { UploadComponent } from './components/upload/upload.component';
+import { SearchComponent } from './components/search/search.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import {MatSelectModule} from '@angular/material/select';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 @NgModule({
   declarations: [
     AppComponent,
-    TabGroupComponent,
-    TabPanelComponent,
     VoteComponent,
     BreedComponent,
     FavoriteComponent,
@@ -30,6 +30,10 @@ import { SearchComponent } from './tab-panel/search/search.component';
     FormsModule,
     HttpClientModule,
     PaginationModule,
+    MatTabsModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    CarouselModule,
   ],
   providers: [
     {

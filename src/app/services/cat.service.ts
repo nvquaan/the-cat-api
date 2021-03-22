@@ -28,8 +28,8 @@ export class CatService extends ApiService {
     return this.get(this.apiURL + '/breeds');
   }
 
-  public getBreed(id: string) {
-    return this.get(this.apiURL + '/images/search?breed_id=' + id);
+  public getBreed(id: string, params) {
+    return this.get(this.apiURL + '/images/search?breed_id=' + id, params);
   }
 
   public getAllFav(params?:any) {

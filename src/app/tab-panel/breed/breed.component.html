@@ -1,5 +1,8 @@
-<label for="breeds">Breeds: </label>
-  <select name="breeds" id="breeds" (change)="selectBreed($event.target.value)">
-    <option *ngFor="let item of breedArr" value="{{item['id']}}"> {{item['name']}}</option>
-  </select>
-<img [src]= "breedObj?.url" alt="">
+
+
+<mat-form-field appearance="fill">
+  <mat-label>Breeds</mat-label>
+  <mat-select (selectionChange) = "selectBreed($event.target.value)">
+    <mat-option *ngFor="let item of breedArr" [value]="item['id']">{{item['name']}}</mat-option>
+  </mat-select>
+</mat-form-field>
