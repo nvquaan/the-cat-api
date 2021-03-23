@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
 import { ApiService } from './api.service';
 @Injectable({
   providedIn: 'root',
 })
 export class CatService extends ApiService {
-  apiURL: string = environment.baseUrl;
+  apiURL: string = 'https://api.thecatapi.com/v1';
 
   public getCats(params?: any) {
     return this.get(this.apiURL + '/images/search', params);
