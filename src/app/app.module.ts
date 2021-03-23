@@ -16,7 +16,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ReactiveFormsModule} from '@angular/forms';
-import { SnowComponent } from './components/snow/snow.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +24,6 @@ import { SnowComponent } from './components/snow/snow.component'
     FavoriteComponent,
     UploadComponent,
     SearchComponent,
-    SnowComponent,
   ],
   imports: [
     BrowserModule,

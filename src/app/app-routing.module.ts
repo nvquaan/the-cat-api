@@ -1,13 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SnowComponent } from './components/snow/snow.component';
 
-const routes: Routes = [
-  {
-    path: 'snow',
-    component: SnowComponent
-  }
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
