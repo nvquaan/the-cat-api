@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { forkJoin } from 'rxjs';
-import { ILikedCat } from 'src/app/model/cat.interface';
-import { CatService } from '../../services/cat.service';
+import { ILikedCat } from 'src/app/_model/cat.interface';
+import { CatService } from '../../_services/cat.service';
 
 @Component({
   selector: 'app-favorite',

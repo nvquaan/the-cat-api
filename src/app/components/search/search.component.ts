@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IBreed, IBreeds, ICat, ICategory, ILikedCat } from 'src/app/model/cat.interface';
-import { CatService } from '../../services/cat.service';
+import { IBreed, IBreeds, ICat, ICategory, ILikedCat } from 'src/app/_model/cat.interface';
+import { CatService } from '../../_services/cat.service';
 
 @Component({
   selector: 'app-search',

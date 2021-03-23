@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { VoteComponent } from './components/vote/vote.component';
 import { BreedComponent } from './components/breed/breed.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
-import { ApiInterceptor } from './interceptors/api.interceptor';
+import { ApiInterceptor } from './_helpers/api.interceptor';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { UploadComponent } from './components/upload/upload.component';
 import { SearchComponent } from './components/search/search.component';
@@ -15,6 +15,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import {MatSelectModule} from '@angular/material/select';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ReactiveFormsModule} from '@angular/forms';
+import { SnowComponent } from './components/snow/snow.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     FavoriteComponent,
     UploadComponent,
     SearchComponent,
+    SnowComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     BrowserAnimationsModule,
     MatSelectModule,
     CarouselModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {

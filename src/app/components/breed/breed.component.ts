@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CatService } from '../../services/cat.service';
-import { IBreed, IBreeds } from '../../model/cat.interface'
+import { CatService } from '../../_services/cat.service';
+import { IBreed, IBreeds } from '../../_model/cat.interface'
 @Component({
   selector: 'app-breed',
   templateUrl: './breed.component.html',

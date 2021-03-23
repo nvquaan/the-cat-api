@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CatService } from '../../services/cat.service';
+import { CatService } from '../../_services/cat.service';
 
 @Component({
   selector: 'app-upload',
@@ -14,10 +14,6 @@ export class UploadComponent implements OnInit {
   
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
-    console.log(this.fileToUpload);
-  }
-
-  upLoadFile(){
     this.catService.postFile(this.fileToUpload).subscribe(res => {console.log(res)});
   }
 }

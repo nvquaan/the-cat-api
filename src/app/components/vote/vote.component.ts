@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ICat } from 'src/app/model/cat.interface';
-import { CatService } from '../../services/cat.service';
+import { ICat } from 'src/app/_model/cat.interface';
+import { CatService } from '../../_services/cat.service';
 
 @Component({
   selector: 'app-vote',
