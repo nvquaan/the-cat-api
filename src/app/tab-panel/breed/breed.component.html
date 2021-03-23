@@ -1,8 +1,0 @@
-
-
-<mat-form-field appearance="fill">
-  <mat-label>Breeds</mat-label>
-  <mat-select (selectionChange) = "selectBreed($event.target.value)">
-    <mat-option *ngFor="let item of breedArr" [value]="item['id']">{{item['name']}}</mat-option>
-  </mat-select>
-</mat-form-field>

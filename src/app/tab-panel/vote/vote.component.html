@@ -1,9 +1,0 @@
-<div class="vote-btn">
-  <button (click)="upVote()" [style.backgroundColor] = "'#4caf50'">LOVE IT</button>
-  <button (click)="downVote()" [style.backgroundColor] = "'#f44336'">NOPE IT</button>
-</div>
-
-<div class="content">
-  <img [src]="url" alt="" /><br />
-  <button (click)="likeCat()" [style.backgroundColor]="!status ? '#60b463' : 'red'">{{str}}</button>
-</div>
