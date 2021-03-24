@@ -1,0 +1,11 @@
+form {
+  text-align: center;
+}
+.row-control {
+  mat-form-field {
+    width: 60%;
+  }
+  button{
+    padding:8px 26px;
+  }
+}

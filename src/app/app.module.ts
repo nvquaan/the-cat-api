@@ -16,7 +16,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ReactiveFormsModule} from '@angular/forms';
-import { SnowComponent } from './components/snow/snow.component';
+import { LoginComponent } from './components/login/login.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +29,7 @@ import { SnowComponent } from './components/snow/snow.component';
     FavoriteComponent,
     UploadComponent,
     SearchComponent,
-    SnowComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,10 @@ import { SnowComponent } from './components/snow/snow.component';
     MatSelectModule,
     CarouselModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
   ],
   providers: [
     {
