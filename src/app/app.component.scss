@@ -1,4 +1,8 @@
-.mat-tab-group{
+.container {
     width:600px;
     margin: 0 auto;
+    a.mat-tab-link{
+        text-decoration:none;
+        min-width: 20%;
+    }
 }

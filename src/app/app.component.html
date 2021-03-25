@@ -1,8 +1,12 @@
-<mat-tab-group dynamicHeight [backgroundColor]="'primary'" [color]="'warn'">
-  <mat-tab label="LOGIN"> <app-login></app-login> </mat-tab>
-  <mat-tab label="VOTE"> <app-vote></app-vote> </mat-tab>
-  <mat-tab label="BREEDS"> <app-breed></app-breed> </mat-tab>
-  <mat-tab label="IMAGES/SEARCH"> <ng-template matTabContent> <app-search></app-search> </ng-template> </mat-tab>
-  <mat-tab label="FAVORITES"> <ng-template matTabContent> <app-favorite></app-favorite> </ng-template> </mat-tab>
-  <mat-tab label="UPLOAD"> <app-upload></app-upload> </mat-tab>
-</mat-tab-group>
+<div class="container">
+  <nav
+    mat-tab-nav-bar
+    [backgroundColor]="'primary'">
+    <a mat-tab-link [routerLink]="'/login'"> LOGIN </a>
+    <a mat-tab-link [disabled]="isDisabled" [routerLink]="'/'"> VOTE </a>
+    <a mat-tab-link [disabled]="isDisabled" [routerLink]="'/search'"> SEARCH </a>
+    <a mat-tab-link [disabled]="isDisabled" [routerLink]="'/favorites'"> FAVORITES </a>
+    <a mat-tab-link [disabled]="isDisabled" [routerLink]="'/upload'"> UPLOAD </a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

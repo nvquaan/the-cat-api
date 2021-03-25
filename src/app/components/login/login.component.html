@@ -1,5 +1,5 @@
-<div class="container">
-  <form class="sign-in-form" [formGroup]="loginForm">
+<div class="container" *ngIf="!isLoggedIn; else logged">
+  <form class="sign-in-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <h2>Sign in</h2>
     <div class="row-control">
       <mat-form-field appearance="outline">
@@ -27,3 +27,9 @@
     <pre>{{ loginForm.value | json }}</pre>
   </form>
 </div>
+
+<ng-template #logged>
+    <div class="logout">
+        <button mat-raised-button class="logout" color="primary" (click)="logout()">Sign out</button>
+    </div>
+</ng-template>
