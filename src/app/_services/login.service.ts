@@ -16,7 +16,7 @@ export class LoginService {
       password: '123456'
     }
   ];
-  authen: BehaviorSubject<boolean> = new BehaviorSubject(!localStorage.getItem('isLoggedIn'));
+  authen: BehaviorSubject<boolean> = new BehaviorSubject(!this.getLocalStorage());
   
   constructor() {
    }
@@ -26,8 +26,8 @@ export class LoginService {
     });
     if(account){
       if(rememberMe){
-        localStorage.setItem('isLoggedIn', 'true');
-        this.authen.next(!!localStorage.getItem('isLoggedIn'));
+        this.setLocalStorage('true');
+        this.authen.next(!!this.getLocalStorage());
       }
       else{
         this.authen.next(true);
@@ -35,14 +35,20 @@ export class LoginService {
       return of(true);
     }
     else{
-      localStorage.setItem('isLoggedIn', 'false');
-      this.authen.next(!localStorage.getItem('isLoggedIn'));
+      this.setLocalStorage('false');
+      this.authen.next(!this.getLocalStorage());
       return of(false);
     }
   }
   logout(){
-    localStorage.setItem('isLoggedIn', 'false');
-    this.authen.next(!localStorage.getItem('isLoggedIn'));
+    this.setLocalStorage('false');
+    this.authen.next(!this.getLocalStorage());
     return of(false);
+  }
+  private getLocalStorage(){
+    return localStorage.getItem('isLoggedIn')
+  }
+  private setLocalStorage(str: string){
+    localStorage.setItem('isLoggedIn', str);
   }
 }

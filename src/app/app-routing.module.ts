@@ -38,6 +38,10 @@ const routes: Routes = [
     component:VoteComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path:'**',
+    redirectTo:''
+  }
 ];
 
 @NgModule({
